@@ -22,7 +22,7 @@
 
   import Controls from './assets/controls/Controls.svelte'; // Common UI controls
 
-  import Panel from './assets/panels/Panel.svelte'; // GA panel
+  import Panel from './panel/Panel.svelte'; // GA panel
 
   import * as rt from "../wailsjs/runtime/runtime.js";  // Wails runtime
 
@@ -218,30 +218,6 @@
 
     // Connect
     IFconnect();
-
-  }
-
-  // Choose panel to use
-  function selectPanel(target) {
-
-    // Hide selection
-    choosePanel = false;
-      
-    // Set the chosen panel
-    panel = target;
-
-    // Get the panel's required state list
-//    states = PanelComponent.getStates();
-
-    if (ifConnected) {
-    // Disconnect from IF and then reconnect
-      IFCend().then(() => {
-        IFconnect();
-        states["aircraft/0/bank"] = 0.1;
-      });
-    }
-
-    // We need to disconnect and reconnect to IF when we change the list of states?
 
   }
 
