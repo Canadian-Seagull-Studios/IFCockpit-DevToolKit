@@ -1,0 +1,47 @@
+/*
+
+	This file is part of the IFCockpit Developer Toolkit
+	from Canadian Seagull Studios Ltd.
+
+	This is not open source and may only be used by developers
+	who are part of the IFCockpit developer programme under the
+	terms of the programme and may not be shared with anyone
+	outside the terms of that programme or otherwise with the
+	explicit written consent of Canadian Seagull Studios Ltd.
+
+	Copyright 2024, Canadian Seagull Studios Ltd.
+	All rights reserved.
+
+*/
+
+html {
+    background-color: #000;
+    text-align: center;
+    color: white;
+    margin: 0;
+}
+
+body {
+    margin: 0;
+    color: white;
+    font-family: "Nunito", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+    "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+}
+
+body:hover {
+    cursor: default;
+}
+
+@font-face {
+    font-family: "Nunito";
+    font-style: normal;
+    font-weight: 400;
+    src: local(""),
+    url("assets/fonts/nunito-v16-latin-regular.woff2") format("woff2");
+}
+
+#app {
+    height: 100vh;
+    text-align: center;
+}

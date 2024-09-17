@@ -23,3 +23,18 @@ go.work.sum
 
 # env file
 .env
+
+#custom
+go.sum
+package.json
+package-lock.json
+node_modules/
+build/*.dmg
+build/*.pkg
+build/bin/*.app
+build/darwin/entitlements.plist
+frontend/package-lock.json
+frontend/package.json.md5
+frontend/node_modules/
+frontend/dist/
+

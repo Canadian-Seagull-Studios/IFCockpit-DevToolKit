@@ -1,0 +1,13 @@
+{
+  "$schema": "https://wails.io/schemas/config.v2.json",
+  "name": "IFCockpit",
+  "outputfilename": "IFCockpit",
+  "frontend:install": "npm install",
+  "frontend:build": "npm run build",
+  "frontend:dev:watcher": "npm run dev",
+  "frontend:dev:serverUrl": "auto",
+  "author": {
+    "name": "Arman Danesh",
+    "email": "32106282+likeablegeek@users.noreply.github.com"
+  }
+}
