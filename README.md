@@ -126,7 +126,7 @@ To enable Test Mode click the `Test Mode` button in the top-right of the toolkit
 
 ## Panel Development
 
-In simple terms, a cockpit panel in IFCockpit is nothing more than [Svelte component](https://svelte.dev/docs/svelte-components). This documentation assumes you are comfortable with Svelte and how to create components.
+In simple terms, a cockpit panel in IFCockpit is nothing more than a [Svelte component](https://svelte.dev/docs/svelte-components). This documentation assumes you are comfortable with Svelte and how to create components.
 
 In the toolkit you want to perform your panel component development in the directory `./frontend/src/panel/`. This is where the sample general aviation panel is in the repository:
 
@@ -144,6 +144,8 @@ import Turncoord from './ifcc-turncoord/Instrument.svelte';
 import Horizon from './ifcc-horizon/Instrument.svelte';
 ```
 
+Any images, resources, Svelte components or other files outside your `Panel.svelte` file must exist within the `./frontend/src/panel/` directory. You are free to create subdirectories within this directory as needed when developing your component.
+
 The minimum requirements for your component are:
 
 1. You must import `onMount` and `createEventDispatcher` from `svelte`
@@ -151,41 +153,37 @@ The minimum requirements for your component are:
 3. You must export a function called `getStates` which returns an array of strings containing a list of Infinite Flight state names which are needed by your panel
 4. When your component mounts, use `onMount` to dispatch a `panelloaded` event
 
-This looks something like this strawman example:
+This looks something like this strawman example of the `<script>` block in `Panel.svelte`:
 
-```
-<script>
+```js
+import { onMount } from 'svelte';
+import { createEventDispatcher } from 'svelte';
 
-    import { onMount } from 'svelte';
-    import { createEventDispatcher } from 'svelte';
+const dispatch = createEventDispatcher();
 
-    const dispatch = createEventDispatcher();
+// Panel needs to receive states and previous objects from main App.svelte
+export let states;
+export let previous;
 
-    // Panel needs to receive states and previous objects from main App.svelte
-    export let states;
-    export let previous;
+// Holds references to instantiated instruments
+const instruments = {};
 
-    // Holds references to instantiated instruments
-    const instruments = {};
+// Function to provide list of states required to App.svelte
+export function getStates() {
 
-    // Function to provide list of states required to App.svelte
-    export function getStates() {
+    // Return an array of strings containing a list of IF state names.
+    // You can return a static array or build an array programatically
+    // such as in the general aviation example which builds the list
+    // from the imported instrument components. The approach is your choice.
 
-        // Return an array of strings containing a list of IF state names.
-        // You can return a static array or build an array programatically
-        // such as in the general aviation example which builds the list
-        // from the imported instrument components. The approach is your choice.
+    return someArray;
+    
+}
 
-        return someArray;
-        
-    }
-
-    // Dispatch a panelloaded event to inform IFCockpit your panel is ready
-    onMount(function() {
-        dispatch("panelloaded",{ state: true });
-    });
-
-</script>
+// Dispatch a panelloaded event to inform IFCockpit your panel is ready
+onMount(function() {
+    dispatch("panelloaded",{ state: true });
+});
 ```
 
 How you build the user interface and logic of your component is entirely at your discretion within the context of this Svelte component.
