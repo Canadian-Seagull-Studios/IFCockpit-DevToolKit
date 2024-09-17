@@ -8,28 +8,22 @@ Copyright 2024, Canadian Seagull Studios Ltd. All rights reserved.
 
 ## Requirements
 
-IFCockpit is a macOS desktop application built with the cross-platform Wails framework for building desktop apps using Web technology. IFCockpit uses Svelte as as its Web framework within Wails.
+IFCockpit is a macOS desktop application built with the cross-platform [Wails](https://wails.io/) framework for building desktop apps using Web technology. IFCockpit uses Svelte as as its Web framework within Wails.
 
 To use this toolkit to build a cockpit panel requires:
 
 1. A Mac computer running macOS Sonoma or Sequoia
-
 2. Familiarity build Web applications using Svelte along with HTML, CSS and JavaScript
-
 3. XCode command intalled along with its command line tools
-
-4. Go, Wails and NPM installed
+4. [Go](https://go.dev/), [Wails](https://wails.io/) and NPM installed
 
 ## Installing Dependencies: Preparing Your Mac to use the Toolkit
 
 Before downloading the toolkit, several steps are needed to set up your Mac:
 
 1. Install Go
-
 2. Install NPM
-
 3. Install the XCode command-line tools
-
 4. Install Wails
 
 ### Installing Go
@@ -102,10 +96,30 @@ To run the toolkit application to test your panel, use the following command in 
 wails dev
 ```
 
-This should build the application and launch it.
+This should build the application and launch it:
+
+![IFCockpit Developer Toolkit](./IFCockpitToolkit.png)
 
 By default, the toolkit includes the default general aviation cockpit panel from IFCockpit as a reference and to allow you to test your installation of the toolkit is working before beginning your own panel development.
 
 To make sure the toolkit is working, first make sure you enable the IF Connect API by selecting General > Enable Infinite Flight Connect in the Infinite Flight settings. Next, check the IP address of your Infinite Flight device.
 
 Once done, simply enter that IP address in the IFCockpit Developer Toolkit app and click connect. It should indicate a successful connection and the panel instruments should respond to changes in your flights altitude, airspeed, vertical speed and so on.
+
+### Using Test Mode
+
+In addition to connecting to Infinite Flight and testing your panel while flying, you can use the toolkit's test mode to test how your panel reacts to the following Infinite flight states without connecting to Infinite Flight:
+
+* `aircraft/0/altitude_msl`
+* `aircraft/0/altitude_agl`
+* `aircraft/0/vertical_speed`
+* `aircraft/0/heading_magnetic`
+* `aircraft/0/indicated_airspeed`
+* `aircraft/0/pitch`
+* `aircraft/0/bank`
+
+States are the data points you can monitor and/or manipulate in Infinite Flight through the [Infinite Flight Connect v2 API](https://infiniteflight.com/guide/developer-reference/connect-api/overview). You can see a list of all states by aircraft here: https://infiniteflight.com/guide/developer-reference/connect-api/version-2-states.
+
+To enable Test Mode click the `Test Mode` button in the top-right of the toolkit window. Test Mode controls will appear below the panel and allow you to interactively change the value of any of these states to see how your panel reacts:
+
+![Test Mode](./IFCockpitTestMode.png)
