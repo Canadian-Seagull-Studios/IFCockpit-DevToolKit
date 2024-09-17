@@ -26,7 +26,7 @@ go.work.sum
 
 #custom
 go.sum
-package.json
+/package.json
 package-lock.json
 node_modules/
 build/*.dmg
