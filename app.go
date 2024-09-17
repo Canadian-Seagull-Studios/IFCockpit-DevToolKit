@@ -29,8 +29,6 @@ import (
 
 	"encoding/binary"
 
-//	"github.com/veandco/go-sdl2/sdl"
-
 	"github.com/wailsapp/wails/v2/pkg/runtime"
 )
 
@@ -71,8 +69,6 @@ var states = make(map[string]any)     // Latest state data for all polled states
 
 var CommandsByName = make(map[string]Command) // Map of all commands organised by command name
 var CommandsByCode = make(map[int]Command)    // Map of all commands organised by command code
-
-//var joysticks [16]*sdl.Joystick // An array of connected joysticks
 
 var device Device // Current active IF device
 
