@@ -6,7 +6,7 @@
 	This is not open source and may only be used by developers
 	who are part of the IFCockpit developer programme under the
 	terms of the programme and may not be shared with anyone
-	outside the terms of that programme or otherwise with the
+	outside the terms of that programme or otherwise without the
 	explicit written consent of Canadian Seagull Studios Ltd.
 
 	Copyright 2024, Canadian Seagull Studios Ltd.
