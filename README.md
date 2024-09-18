@@ -88,6 +88,12 @@ Once you have clones the repository, change into the `frontend` subdirectory in 
 npm i
 ```
 
+## Setting up the `panel` Directory
+
+In the toolkit you want to perform your panel component development in the directory `./frontend/src/panel/`. The repository does not contain this directory. However, a sample general aviation panel is in the directory `./frontend/src/sample/`.
+
+To start your development, it is recommended to copy the `./frontend/src/sample/` to `./frontend/src/panel/`. The toolkit application will not run without a minimally compliant panel component in the `./frontend/src/panel/` directory.
+
 ## Using the Toolkit
 
 To run the toolkit application to test your panel, use the following command in the root directory of the respository:
@@ -128,11 +134,7 @@ To enable Test Mode click the `Test Mode` button in the top-right of the toolkit
 
 In simple terms, a cockpit panel in IFCockpit is nothing more than a [Svelte component](https://svelte.dev/docs/svelte-components). This documentation assumes you are comfortable with Svelte and how to create components.
 
-In the toolkit you want to perform your panel component development in the directory `./frontend/src/panel/`. The repository does not contain this directory. However, a sample general aviation panel is in the directory `./frontend/src/sample/`.
-
-To start your development, 
-
-This is where the sample general aviation panel is in the repository:
+In the toolkit you want to perform your panel component development in the directory `./frontend/src/panel/`. If you followed the setup step to copy `./frontend/src/sample/` to this directory then you will see the directory containing the sample general aviation panel like this:
 
 ![Panel Directory](./IFCockpitPanelDirectory.png)
 

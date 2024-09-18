@@ -37,4 +37,4 @@ frontend/package-lock.json
 frontend/package.json.md5
 frontend/node_modules/
 frontend/dist/
-frontend/src/panel/*
+frontend/src/panel/
