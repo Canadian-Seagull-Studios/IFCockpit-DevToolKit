@@ -13,7 +13,7 @@ IFCockpit is a macOS desktop application built with the cross-platform [Wails](h
 To use this toolkit to build a cockpit panel requires:
 
 1. A Mac computer running macOS Sonoma or Sequoia
-2. Familiarity build Web applications using Svelte and creating Svelte components
+2. Familiarity building Web applications using Svelte and creating Svelte components
 3. XCode command intalled along with its command line tools
 4. [Go](https://go.dev/), [Wails](https://wails.io/) and NPM installed
 
