@@ -220,10 +220,14 @@ To do this, your panel component needs to emit a `setstate` value passing in an 
 
 ```js
 dispatch("setstate", {
-    state: "",
-    value: ""
+    state: "api_joystick/buttons/1/value",
+    value: 1
 });
 ```
+
+The value you send to the relevant state must be in the right type and unit value as expected by Infinite Flight. IFCockpit provides no logic for managing this and panel develoeprs should send appropriate values to Infinite Flight.
+
+Please note that the general aviation panel example provided in this toolkit does not provide an example of using the `setstate` event to set an Infinite Flight state.
 
 ### Accessing Browser Developer Tools
 
