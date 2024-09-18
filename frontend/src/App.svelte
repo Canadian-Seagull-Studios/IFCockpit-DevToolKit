@@ -22,6 +22,7 @@
 
   import Controls from './assets/controls/Controls.svelte'; // Common UI controls
   import Testmode from './assets/testmode/Testmode.svelte'; // Testmode controls
+  import LogModal from './assets/logmodal/LogModal.svelte'; // Log Modal
 
   import Panel from './sample/Panel.svelte'; // GA panel
 
@@ -289,20 +290,7 @@
   {/if}
 
   <!-- Logs modal -->
-  <dialog id="logModal" class="modal" class:modal-open={logModal}>
-    <div class="modal-box h-3/4">
-      <div class="grid grid-cols-2 gap-4 m-4 h-4/5 overflow-y-scroll">
-        <pre class="text-left text-red-600">{errors}</pre>
-        <pre class="text-left">{status}</pre>
-      </div>
-      <div class="modal-action">
-        <button class="btn" on:click={()=>logModal = false}>Close</button>
-      </div>
-    </div>
-    <form method="dialog" class="modal-backdrop">
-      <button>close</button>
-    </form>
-  </dialog>
+  <LogModal bind:logModal={logModal} errors={errors} status={status} />
 
 </main>
 
