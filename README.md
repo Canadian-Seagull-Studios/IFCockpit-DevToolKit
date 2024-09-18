@@ -212,6 +212,19 @@ Ultimately this will display in the Javascript console when running your panel i
 
 For this reason, it is recommended to simply use this event dispatching method for generating log messages instead of `console.log()` when developing your panel.
 
+### Setting Infinite Flight States
+
+IFCockpit provides panel developers with the ability to set state values in Infinite Flight for states which can be set via the IF Connect API.
+
+To do this, your panel component needs to emit a `setstate` value passing in an object containing a state name and value as in this example:
+
+```js
+dispatch("setstate", {
+    state: "",
+    value: ""
+});
+```
+
 ### Accessing Browser Developer Tools
 
 In Wails, the front end user interface of the macOS desktop application is being rendered in a macOS webview component. Accordingly, you have access to a standard suite of browser developer tools as you would expect to find in browsers such as Safari or Chrome.

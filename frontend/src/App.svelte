@@ -162,12 +162,16 @@
 
   // Set a state from the front end by calling IFCset backend function
   function setState(state,val) {
-    try {
-        IFCset(state,val);
-    } catch (err) {
-        console.error(err);
+    if (ifConnected) {
+      try {
+          IFCset(state,val);
+      } catch (err) {
+          console.error(err);
+          return false;
+      }
+      return true;
     }
-    return true;
+    return false;
   }
 
   // Connect to IF on a specified IP by calling IFCinit back-end function
