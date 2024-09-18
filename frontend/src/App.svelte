@@ -22,7 +22,7 @@
 
   import Controls from './assets/controls/Controls.svelte'; // Common UI controls
 
-  import Panel from './panel/Panel.svelte'; // GA panel
+  import Panel from './sample/Panel.svelte'; // GA panel
 
   import * as rt from "../wailsjs/runtime/runtime.js";  // Wails runtime
 
