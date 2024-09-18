@@ -60,6 +60,7 @@
 
     onMount(function() {
         dispatch("panelloaded",{ state: true });
+        dispatch("setstate",{ state: "foo", value: "bar" })
     });
 
 </script>

@@ -28,7 +28,7 @@
 
   import TailwindCss from './TailwindCSS.svelte'; // Baseline tailwind CSS
 
-  import {IFCinit,IFCend,GetEnvironment} from '../wailsjs/go/main/App'; // Front end functions exposed by Go backend
+  import {IFCinit,IFCend,IFCset,GetEnvironment} from '../wailsjs/go/main/App'; // Front end functions exposed by Go backend
 
   let isDev = false; // Are we in a dev environment?
 
@@ -160,6 +160,16 @@
     if (isDev) { console.log(msg); }
   }
 
+  // Set a state from the front end by calling IFCset backend function
+  function setState(state,val) {
+    try {
+        IFCset(state,val);
+    } catch (err) {
+        console.error(err);
+    }
+    return true;
+  }
+
   // Connect to IF on a specified IP by calling IFCinit back-end function
   function IFconnect() {
 
@@ -285,7 +295,9 @@
     </div>
 
     <!-- Panel to render depending on selected panel -->
-    <Panel bind:this={PanelComponent} states={states} previous={previous} on:panelloaded={() => states = PanelComponent.getStates()} />
+    <Panel bind:this={PanelComponent} states={states} previous={previous} 
+      on:panelloaded={() => states = PanelComponent.getStates()} 
+      on:setstate={(event) => { setState(event.detail.state,event.detail.value) }} />
 
   </div>
 

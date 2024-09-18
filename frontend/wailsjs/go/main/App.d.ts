@@ -7,3 +7,5 @@ export function GetEnvironment():Promise<runtime.EnvironmentInfo>;
 export function IFCend():Promise<void>;
 
 export function IFCinit(arg1:Array<string>,arg2:string):Promise<void>;
+
+export function IFCset(arg1:string,arg2:any):Promise<void>;

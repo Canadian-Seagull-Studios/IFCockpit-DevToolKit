@@ -13,3 +13,7 @@ export function IFCend() {
 export function IFCinit(arg1, arg2) {
   return window['go']['main']['App']['IFCinit'](arg1, arg2);
 }
+
+export function IFCset(arg1, arg2) {
+  return window['go']['main']['App']['IFCset'](arg1, arg2);
+}

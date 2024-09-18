@@ -190,6 +190,162 @@ func poll(a *App) error {
 
 }
 
+// Set a state in IF
+func set(a *App, state string, val any) error {
+
+	runtime.LogError(a.ctx, "set: Start")
+
+	// Get integer command/state code from the command/state name
+	cmdCode := uint32(CommandsByName[state].code)
+
+	// Get command type -- i.e. string, boolean, etc.
+	cmdType := CommandsByName[state].cmdType
+
+	//	log("code: ", cmdCode)
+	//	log("type: ", cmdType)
+
+	// Convert command into bytes -- using little endian per API spec
+	cmdBytes := make([]byte, 5)
+	binary.LittleEndian.PutUint32(cmdBytes, cmdCode)
+	cmdBytes[4] = 0x01
+
+	// Now send based on type of command
+
+	if cmdType == -1 { // Command
+
+		// Command buffer
+		cmdBytes[4] = 0x00
+
+		// Send command
+		_, err = c.Write(cmdBytes)
+		if err != nil {
+			runtime.LogError(a.ctx, "set: Could not send command")
+			runtime.EventsEmit(a.ctx, "errormsg", "Could not send command")
+			return err
+		}
+
+	}
+
+	if cmdType == 0 { // Boolean
+
+		// Data buffer
+		dataBytes := make([]byte, 4)
+
+		// Convert data to bytes using little endian
+		binary.LittleEndian.PutUint32(dataBytes, uint32(val.(float64)))
+
+		// Send command followed by data
+		_, err = c.Write(append(cmdBytes, dataBytes...))
+		if err != nil {
+			runtime.LogError(a.ctx, "set: Could not send boolean data")
+			runtime.EventsEmit(a.ctx, "errormsg", "Could not send boolean set data")
+			return err
+		}
+
+	}
+
+	if cmdType == 1 { // 32-bit integer
+
+		// Data buffer
+		dataBytes := make([]byte, 4)
+
+		// Convert data to bytes using little endian
+		binary.LittleEndian.PutUint32(dataBytes, uint32(val.(float64)))
+
+		// Send command followed by data
+		_, err = c.Write(append(cmdBytes, dataBytes...))
+		if err != nil {
+			runtime.LogError(a.ctx, "set: Could not send 32-bit integer data")
+			runtime.EventsEmit(a.ctx, "errormsg", "Could not send 32-bit integer set data")
+			return err
+		}
+
+	}
+
+	if cmdType == 2 { // 32-bit float
+
+		// Data buffer
+		dataBytes := make([]byte, 4)
+
+		// Convert data to bytes using little endian
+		binary.LittleEndian.PutUint32(dataBytes, math.Float32bits(float32(val.(float64))))
+
+		// Send command followed by data
+		_, err = c.Write(append(cmdBytes, dataBytes...))
+		if err != nil {
+			runtime.LogError(a.ctx, "set: Could not send 32-bit float data")
+			runtime.EventsEmit(a.ctx, "errormsg", "Could not send 32-bit float set data")
+			return err
+		}
+
+	}
+
+	if cmdType == 3 { // 64-bit double
+
+		// Data buffer
+		dataBytes := make([]byte, 8)
+
+		// Convert data to bytes using little endian
+		binary.LittleEndian.PutUint64(dataBytes, math.Float64bits(val.(float64)))
+
+		// Send command followed by data
+		_, err = c.Write(append(cmdBytes, dataBytes...))
+		if err != nil {
+			runtime.LogError(a.ctx, "set: Could not send 64-bit double data")
+			runtime.EventsEmit(a.ctx, "errormsg", "Could not send 64-bit double set data")
+			return err
+		}
+
+	}
+
+	if cmdType == 4 { // String
+
+		// Data buffer
+		dataBytes := []byte(val.(string))
+
+		// Send command followed by data
+		_, err = c.Write(append(cmdBytes, dataBytes...))
+		if err != nil {
+			runtime.LogError(a.ctx, "set: Could not send string data")
+			runtime.EventsEmit(a.ctx, "errormsg", "Could not send string set data")
+			return err
+		}
+
+	}
+
+	if cmdType == 5 { // 64-bit integer
+
+		// Data buffer
+		dataBytes := make([]byte, 8)
+
+		// Convert data to bytes using little endian
+		binary.LittleEndian.PutUint64(dataBytes, uint64(val.(int)))
+
+		// Send command followed by data
+		_, err = c.Write(append(cmdBytes, dataBytes...))
+		if err != nil {
+			runtime.LogError(a.ctx, "set: Could not send 64-bit integer data")
+			runtime.EventsEmit(a.ctx, "errormsg", "Could not send 64-bit integer set data")
+			return err
+		}
+
+	}
+
+	return nil
+
+}
+
+// Front-end broker function to send IF set command
+func (a *App) IFCset(state string, val any) error {
+
+	runtime.LogError(a.ctx, "IFCset: start")
+
+	set(a, state, val)
+
+	return nil
+
+}
+
 // Front-end broker function to initialise IF connection
 func (a *App) IFCinit(stateList []string, ip string) error {
 
