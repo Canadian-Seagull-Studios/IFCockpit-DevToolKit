@@ -34,7 +34,7 @@ Once downloaded, follow the installation instructions here: https://go.dev/doc/i
 
 Once installed, start a new terminal window and verify that your `PATH` includes `~/go/bin` with this command:
 
-```
+```shell
 echo $PATH | grep go/bin
 ```
 
@@ -48,7 +48,7 @@ First make sure you have the latest version of XCode installed on your Mac. You 
 
 You can then install the command-line tools with this command:
 
-```
+```shell
 xcode-select --install
 ```
 
@@ -56,7 +56,7 @@ xcode-select --install
 
 Once you have Go, NPM and the XCode command-line tools installed you can install Wails with this command:
 
-```
+```shell
 go install github.com/wailsapp/wails/v2/cmd/wails@latest
 ```
 
@@ -64,7 +64,7 @@ For reference, the complete Wails installation instructions can be found here: h
 
 Once you have Wails installed, you can verify it is installed with the minimum dependencies with this command:
 
-```
+```shell
 wails doctor
 ```
 
@@ -78,13 +78,13 @@ SUCCESS  Your system is ready for Wails development!
 
 Once the dependencies are successfully installed, clone the IFCockpit Developers Toolkit Github repository:
 
-```
+```shell
 git clone git@github.com:likeablegeek/ifcockpit-devtoolkit.git
 ```
 
 Once you have clones the repository, change into the `frontend` subdirectory in the repository and install package dependencies with NPM:
 
-```
+```shell
 npm i
 ```
 
@@ -94,11 +94,17 @@ In the toolkit you want to perform your panel component development in the direc
 
 To start your development, it is recommended to copy the `./frontend/src/sample/` to `./frontend/src/panel/`. The toolkit application will not run without a minimally compliant panel component in the `./frontend/src/panel/` directory.
 
+You can copy the directory using the following command in the root directory of your cloned repository:
+
+```shell
+cp -a ./frontend/src/sample ./frontend/src/panel
+``` 
+
 ## Using the Toolkit
 
 To run the toolkit application to test your panel, use the following command in the root directory of the respository:
 
-```
+```shell
 wails dev
 ```
 
@@ -210,7 +216,7 @@ Like the `states` object, the `previous` object contains a set of key-value pair
 
 While for development purposes you can log messages to the Javascript console with `console.log()`, your final panel should not use `console.log` for logging messages. Rather, it is recommended to use the in-built logging mechanism in IFCockpit which relies on dispatching a Svelte event from your component through the `logmsg` event as in:
 
-```
+```js
 dispatch("logmsg","A log message as a string");
 ```
 
