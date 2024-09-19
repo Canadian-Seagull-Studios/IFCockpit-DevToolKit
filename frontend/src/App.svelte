@@ -255,13 +255,28 @@
 
 <main>
 
-  <div class="grid-cols-1">
+  <!-- Navbar -->
+  <div class="navbar fixed top-0 left-0">
+    <!-- Controls bar -->
+    <Controls isDev={isDev} on:logmsg={(event) => log(event.detail)} bind:testMode={testMode} bind:logModal={logModal} />
+  </div>
 
-    <!-- Navbar -->
-    <div class="navbar">
-      <!-- Controls bar -->
-      <Controls isDev={isDev} on:logmsg={(event) => log(event.detail)} bind:testMode={testMode} bind:logModal={logModal} />
-    </div>
+  <!-- Test mode if selected -->
+  <div class="fixed bottom-0 left-0 right-0 grid-cols-1">
+    {#if testMode}
+      <Testmode bind:states={states} bind:previous={previous} />
+    {:else}
+          <input bind:value={ip} type="text" placeholder="Enter IF Device IP Address" class="input input-bordered w-full max-w-xs" />
+          <button class="btn btn-accent" on:click={() => IFconnect() }>Connect</button>
+          <button class="btn btn-error" on:click={() => IFdisconnect() }>Disconnect</button>    
+          <div class="p-4 text-lg" class:text-accent={ifConnected} class:text-error={!ifConnected}>{ifConnectedMsg}</div>
+    {/if}
+  </div>
+
+  <!-- Logs modal -->
+  <LogModal bind:logModal={logModal} errors={errors} status={status} />
+
+  <div class="grid-cols-1 py-16">
 
     <!-- Panel to render depending on selected panel -->
     <Panel bind:this={PanelComponent} states={states} previous={previous} 
@@ -269,28 +284,6 @@
       on:setstate={(event) => { setState(event.detail.state,event.detail.value) }} />
 
   </div>
-
-  <!-- Test mode if selected -->
-  <!-- May externalise test mode later in a Svelte component -->
-  {#if testMode}
-    <Testmode bind:states={states} bind:previous={previous} />
-  {:else}
-    <div class="grid grid-cols-1">
-      
-      <div>
-        <input bind:value={ip} type="text" placeholder="Enter IF Device IP Address" class="input input-bordered w-full max-w-xs" />
-        <button class="btn btn-accent" on:click={() => IFconnect() }>Connect</button>
-        <button class="btn btn-error" on:click={() => IFdisconnect() }>Disconnect</button>    
-      </div>
-
-      <div class="p-4 text-lg" class:text-accent={ifConnected} class:text-error={!ifConnected}>{ifConnectedMsg}</div>
-
-    </div>
-
-  {/if}
-
-  <!-- Logs modal -->
-  <LogModal bind:logModal={logModal} errors={errors} status={status} />
 
 </main>
 

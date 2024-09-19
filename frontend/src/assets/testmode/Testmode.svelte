@@ -63,7 +63,7 @@
       <input type="range" min="0" max="600" bind:value={test_heading_magnetic} class="range range-warning range-xs" on:input={() => {previous["aircraft/0/heading_magnetic"] = states["aircraft/0/heading_magnetic"]; states["aircraft/0/heading_magnetic"] = test_heading_magnetic / 100}} />        
     </div>
 
-    <div class="p-4 mx-1 row-span-2 content-center"><svg on:click={resetTestMode} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M125.7 160l50.3 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L48 224c-17.7 0-32-14.3-32-32L16 64c0-17.7 14.3-32 32-32s32 14.3 32 32l0 51.2L97.6 97.6c87.5-87.5 229.3-87.5 316.8 0s87.5 229.3 0 316.8s-229.3 87.5-316.8 0c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0c62.5 62.5 163.8 62.5 226.3 0s62.5-163.8 0-226.3s-163.8-62.5-226.3 0L125.7 160z"/></svg></div>
+    <div class="p-0 mx-w rows-span-2"></div>
 
     <div class="p-0 mx-1 text-sm col-span-2">
       <div>indicated_airspeed [{Math.floor(test_indicated_airspeed * 1.94384)}]</div>
@@ -80,20 +80,22 @@
       <input type="range" min="-100" max="100" bind:value={test_bank} class="range range-warning range-xs" on:input={() => {previous["aircraft/0/bank"] = states["aircraft/0/bank"]; states["aircraft/0/bank"] = test_bank / 100}} />        
     </div>
 
-  </div>
+</div>
 
-  <style>
+<div class="fixed bottom-12 right-2"><svg on:click={resetTestMode} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M125.7 160l50.3 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L48 224c-17.7 0-32-14.3-32-32L16 64c0-17.7 14.3-32 32-32s32 14.3 32 32l0 51.2L97.6 97.6c87.5-87.5 229.3-87.5 316.8 0s87.5 229.3 0 316.8s-229.3 87.5-316.8 0c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0c62.5 62.5 163.8 62.5 226.3 0s62.5-163.8 0-226.3s-163.8-62.5-226.3 0L125.7 160z"/></svg></div>
 
-    #testmode svg {
+<style>
+
+    svg {
         width: 3rem;
     }
 
-    #testmode svg path {
+    svg path {
         fill: oklch(var(--a));
     }
 
-    #testmode svg:hover {
+    svg:hover {
         cursor: pointer;
     }
 
-  </style>
+</style>
