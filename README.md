@@ -5,6 +5,21 @@
 - [Overview](#overview)
 - [Requirements and Background Knowledge](#requirements-and-background-knowledge)
 - [Installing Dependencies: Preparing Your Mac to Use the Toolkit](#installing-dependencies-preparing-your-mac-to-use-the-toolkit)
+ - [Installing Go](#installing-go)
+ - [Installing NPM](#installing-npm)
+ - [Installing the XCode Command-Line Tools](#installing-the-xcode-command-line-tools)
+ - [Installing Wails](#installing-wails)
+- [Setup](#setup)
+ - [Setting up the `panel` Directory](#setting-up-the-panel-directory)
+- [Using the Toolkit](#using-the-toolkit)
+ - [Using Test Mode](#using-test-mode)
+- [Panel Development](#panel-development)
+ - [The `states` Object](#the-states-object)
+ - [The `previous` Object](#the-previous-object)
+ - [Generating Log Messages](#generating-log-messages)
+ - [Setting Infinite Flight States](#setting-infinite-flight-states)
+ - [Accessing Browser Developer Tools](#accessing-browser-developer-tools)
+ - [Tailwind CSS](#tailwind-css)
 
 ## Overview
 
@@ -96,7 +111,7 @@ Once you have clones the repository, change into the `frontend` subdirectory in 
 npm i
 ```
 
-## Setting up the `panel` Directory
+### Setting up the `panel` Directory
 
 In the toolkit you want to perform your panel component development in the directory `./frontend/src/panel/`. The repository does not contain this directory. However, a sample general aviation panel is in the directory `./frontend/src/sample/`.
 
