@@ -1,5 +1,13 @@
 # IFCockpit Development Toolkit
 
+## Contents
+
+- [Overview](#overview)
+- [Requirements and Background Knowledge](#requirements-and-background-knowledge)
+- [Installing Dependencies: Preparing Your Mac to Use the Toolkit](#installing-dependencies-preparing-your-mac-to-use-the-toolkit)
+
+## Overview
+
 This toolkit supports third-party developers in developing cockpit panels for the IFCockpit application from Canadian Seagull Studios Ltd. This toolkit allows developers to test their panels before submitting them to Canadian Seagull Studios for review and inclusion in IFCockpit.
 
 This is not open source and may only be used by developers who are part of the IFCockpit developer programme under the terms of the programme and may not be shared with anyone outside the terms of that programme or otherwise without the explicit written consent of Canadian Seagull Studios. Contact Canadian Seagull Studios at info@canadianseagulls.com for mor einformation on the developer programme.
@@ -17,7 +25,7 @@ To use this toolkit to build a cockpit panel requires:
 3. XCode command intalled along with its command line tools
 4. [Go](https://go.dev/), [Wails](https://wails.io/) and NPM installed
 
-## Installing Dependencies: Preparing Your Mac to use the Toolkit
+## Installing Dependencies: Preparing Your Mac to Use the Toolkit
 
 Before downloading the toolkit, several steps are needed to set up your Mac:
 
