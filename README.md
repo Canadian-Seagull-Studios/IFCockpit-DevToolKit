@@ -110,7 +110,7 @@ wails dev
 
 This should build the application and launch it:
 
-![IFCockpit Developer Toolkit](./IFCockpitToolkit.png)
+![IFCockpit Developer Toolkit](./docs/IFCockpitToolkit.png)
 
 By default, the toolkit includes the default general aviation cockpit panel from IFCockpit as a reference and to allow you to test your installation of the toolkit is working before beginning your own panel development.
 
@@ -134,7 +134,7 @@ States are the data points you can monitor and/or manipulate in Infinite Flight 
 
 To enable Test Mode click the `Test Mode` button in the top-right of the toolkit window. Test Mode controls will appear below the panel and allow you to interactively change the value of any of these states to see how your panel reacts:
 
-![Test Mode](./IFCockpitTestMode.png)
+![Test Mode](./docs/IFCockpitTestMode.png)
 
 ## Panel Development
 
@@ -142,7 +142,7 @@ In simple terms, a cockpit panel in IFCockpit is nothing more than a [Svelte com
 
 In the toolkit you want to perform your panel component development in the directory `./frontend/src/panel/`. If you followed the setup step to copy `./frontend/src/sample/` to this directory then you will see the directory containing the sample general aviation panel like this:
 
-![Panel Directory](./IFCockpitPanelDirectory.png)
+![Panel Directory](./docs/IFCockpitPanelDirectory.png)
 
 The only required file in your component is `Panel.svelte`. Beyond that you can include any additional images or other resources or create additional components which you then include in `Panel.svelte`. In the case of the sample general aviation panel, there are six "sub-components" in sub-directorys (`ifcc-airspeed`, `ifcc-altimeter`, etc) which are all imported into the main `Panel.svelte` component:
 
@@ -247,7 +247,7 @@ In Wails, the front end user interface of the macOS desktop application is being
 
 The simplest way to access these developer tools is to right click anywhere in the user interface of your panel and select `Inspect Element`. This will open developer tools within the toolkit window:
 
-![Browser Developer Tools](./IFCockpitDevTools.png)
+![Browser Developer Tools](./docs/IFCockpitDevTools.png)
 
 ### Tailwind CSS
 
