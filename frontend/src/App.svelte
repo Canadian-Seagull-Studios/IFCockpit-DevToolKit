@@ -255,11 +255,8 @@
 
 <main>
 
-  <!-- Navbar -->
-  <div class="navbar fixed top-0 left-0 h-12 bg-base-100">
-    <!-- Controls bar -->
-    <Controls isDev={isDev} on:logmsg={(event) => log(event.detail)} bind:testMode={testMode} bind:logModal={logModal} />
-  </div>
+  <!-- Controls bar -->
+  <Controls isDev={isDev} on:logmsg={(event) => log(event.detail)} bind:testMode={testMode} bind:logModal={logModal} />
 
   <!-- Test mode if selected -->
   <div class="fixed bottom-0 left-0 right-0 grid-cols-1 h-24 bg-base-100">

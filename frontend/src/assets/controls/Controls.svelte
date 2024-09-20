@@ -28,22 +28,19 @@
 
 </script>
 
-<div class="flex-none gap-4 ms-4">
+<div class="fixed flex top-0 left-0 right-0 h-12 bg-base-100 m-0 p-0">
+
+    <div class="flex-none gap-4 ms-4">
+    </div>
+    <div class="flex-none gap-4 ms-4">
+    </div>
+    <div class="flex-1 justify-center">
+    </div>
+    <div class="flex-none gap-4 me-4 h-12">
+        <Testmode bind:value={testMode} />
+    </div>
+    <div class="flex-none gap-4 me-4 h-12">
+        <LogModal bind:value={logModal} />
+    </div>
+
 </div>
-<div class="flex-none gap-4 ms-4">
-</div>
-<div class="flex-1 justify-center">
-</div>
-<div class="flex-none gap-4 me-4">
-
-    <!-- Display control to toggle test mode -->
-    <Testmode bind:value={testMode} />
-
-    <!-- Display control to display log modal -->
-    <LogModal bind:value={logModal} />
-
-</div>
-
-<style>
-
-</style>

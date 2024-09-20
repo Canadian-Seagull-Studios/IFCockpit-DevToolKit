@@ -23,15 +23,22 @@
     
 </script>
 
-<!-- Button to toggle test mode -->
-<div class="clickable" class:strikethrough={!value} 
+<div>
+
+    <!-- Button to toggle test mode -->
+    <span class="clickable text-lg mt-2" class:strikethrough={!value} 
     class:text-slate-500={!value} 
     class:text-success={value}
     on:click={() => {value = !value}}>
         Test Mode
+    </span>
+
 </div>
 
 <style>
+    span {
+        display: inline-block;
+    }
     .clickable:hover {
         cursor: pointer;
     }
