@@ -50,8 +50,8 @@ func main() {
 	// Create application with options
 	err = wails.Run(&options.App{
 		Title:  "IFCockpit Development Toolkit",
-		Width:  1024,
-		Height: 900,
+		Width:  1600,
+		Height: 1280,
 		AssetServer: &assetserver.Options{
 			Assets: assets,
 		},

@@ -256,7 +256,7 @@
 <main>
 
   <!-- Navbar -->
-  <div class="navbar fixed top-0 left-0 h-24 bg-base-100">
+  <div class="navbar fixed top-0 left-0 h-12 bg-base-100">
     <!-- Controls bar -->
     <Controls isDev={isDev} on:logmsg={(event) => log(event.detail)} bind:testMode={testMode} bind:logModal={logModal} />
   </div>
@@ -278,7 +278,7 @@
   <!-- Logs modal -->
   <LogModal bind:logModal={logModal} errors={errors} status={status} />
 
-  <div class="fixed bottom-24 top-24 left-0 right-0 p-0 m-0">
+  <div class="fixed top-12 bottom-24 left-0 right-0 p-0 m-0">
 
     <!-- Panel to render depending on selected panel -->
     <Panel bind:this={PanelComponent} states={states} previous={previous} 
