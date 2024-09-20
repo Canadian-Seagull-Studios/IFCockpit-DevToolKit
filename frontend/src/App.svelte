@@ -24,7 +24,7 @@
   import Testmode from './assets/testmode/Testmode.svelte'; // Testmode controls
   import LogModal from './assets/logmodal/LogModal.svelte'; // Log Modal
 
-  import Panel from './sample/Panel.svelte'; // GA panel
+  import Panel from './panel/Panel.svelte'; // GA panel
 
   import * as rt from "../wailsjs/runtime/runtime.js";  // Wails runtime
 
@@ -256,27 +256,29 @@
 <main>
 
   <!-- Navbar -->
-  <div class="navbar fixed top-0 left-0">
+  <div class="navbar fixed top-0 left-0 h-24 bg-base-100">
     <!-- Controls bar -->
     <Controls isDev={isDev} on:logmsg={(event) => log(event.detail)} bind:testMode={testMode} bind:logModal={logModal} />
   </div>
 
   <!-- Test mode if selected -->
-  <div class="fixed bottom-0 left-0 right-0 grid-cols-1">
+  <div class="fixed bottom-0 left-0 right-0 grid-cols-1 h-24 bg-base-100">
     {#if testMode}
       <Testmode bind:states={states} bind:previous={previous} />
     {:else}
-          <input bind:value={ip} type="text" placeholder="Enter IF Device IP Address" class="input input-bordered w-full max-w-xs" />
-          <button class="btn btn-accent" on:click={() => IFconnect() }>Connect</button>
-          <button class="btn btn-error" on:click={() => IFdisconnect() }>Disconnect</button>    
-          <div class="p-4 text-lg" class:text-accent={ifConnected} class:text-error={!ifConnected}>{ifConnectedMsg}</div>
+      <div class="p-4">
+        <input bind:value={ip} type="text" placeholder="Enter IF Device IP Address" class="input input-bordered w-full max-w-xs" />
+        <button class="btn btn-accent" on:click={() => IFconnect() }>Connect</button>
+        <button class="btn btn-error" on:click={() => IFdisconnect() }>Disconnect</button>    
+        <span class="p-4 text-lg" class:text-accent={ifConnected} class:text-error={!ifConnected}>{ifConnectedMsg}</span>
+      </div>
     {/if}
   </div>
 
   <!-- Logs modal -->
   <LogModal bind:logModal={logModal} errors={errors} status={status} />
 
-  <div class="grid-cols-1 py-16">
+  <div class="fixed bottom-24 top-24 left-0 right-0 p-0 m-0">
 
     <!-- Panel to render depending on selected panel -->
     <Panel bind:this={PanelComponent} states={states} previous={previous} 
