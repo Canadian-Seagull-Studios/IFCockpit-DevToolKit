@@ -25,10 +25,12 @@ import (
 	"github.com/wailsapp/wails/v2"
 	"github.com/wailsapp/wails/v2/pkg/options"
 	"github.com/wailsapp/wails/v2/pkg/options/assetserver"
+	"github.com/wailsapp/wails/v2/pkg/options/mac"
 )
 
 //go:embed all:frontend/dist
 var assets embed.FS
+var icon []byte
 
 func main() {
 
@@ -49,9 +51,11 @@ func main() {
 
 	// Create application with options
 	err = wails.Run(&options.App{
-		Title:  "IFCockpit Development Toolkit",
-		Width:  1600,
-		Height: 1280,
+		Title:     "IFCockpit Development Toolkit",
+		Width:     1100,
+		Height:    900,
+		MinWidth:  1100,
+		MinHeight: 900,
 		AssetServer: &assetserver.Options{
 			Assets: assets,
 		},
@@ -59,6 +63,13 @@ func main() {
 		OnStartup:        app.startup,
 		Bind: []interface{}{
 			app,
+		},
+		Mac: &mac.Options{
+			About: &mac.AboutInfo{
+				Title:   "IfCockpit Development Toolkit",
+				Message: "IFCockpit Development Toolkit is brought to you by Canadian Seagull Studios Ltd.\n\nThis toolkit supports third-party developers in developing cockpit panels for IFCockpit.\n\n© 2024, Canadian Seagull Studios Ltd.",
+				Icon:    icon,
+			},
 		},
 	})
 
