@@ -234,6 +234,18 @@ How you build the user interface and logic of your component is entirely at your
 
 It is important to keep in mind that your component is being rendered ultimately within a macOS webview component  -- which means the version of that webview will differ based on the version of macOS the user is running. You should keep this in mind for any testing of your panel.
 
+### Layout of the IFCockpit Window
+
+The layout of the IFCockpit window is fairly straight forward. The window of the developers toolkit application is exactly the same. In simple terms, a fixed bar across the top and bottom of the window are reserved for IFCockpit's internal use and the middle portion of the window is available to panels:
+
+![IFCockpit window zones](./docs/IFCockpitZones.png)
+
+The top IFCockpit zone has a height of `3rem` and the bottom zone has a height of `6em`. The middle zone for panels varies in height based on the window height -- so is effectively `100vh - 9rem`.
+
+As the panel zone's height and width vary with window dimensions, panel layouts should account for this variability (for instance by using `%`, `vmin` or `vh` as base units for layout or by other techniques as preferred by a panel developer).
+
+By default the background colour of the panel zone is black (`#000000`). Any elements you place in the zone will have a black background unless the elements themselves have a different background colour. You can change the background colour by filling the entire zone with your own base element with a different background colour and then building your panel within that container element.
+
 ### The `states` Object
 
 The `states` object is used by IFCockpit to pass the values of Infinite Flight states into a panel. It will contain a set of key-value pairs where the key is the full Infinite Flight name of a state (such as `aircraft/0/bank`) and the value is the raw value returned by Infinite Flight in the relevant data type (integer, floating point number, string, boolean, etc.). It is the responsibility of your panel logic to transfer this value as required.
