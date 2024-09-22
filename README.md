@@ -3,7 +3,7 @@
 ## Contents
 
 - [Overview](#overview)
-= [About the Panel Developers Programme](#about-the-panel-developers-programme)
+- [About the Panel Developers Programme](#about-the-panel-developers-programme)
 - [Requirements and Background Knowledge](#requirements-and-background-knowledge)
 - [Installing Dependencies: Preparing Your Mac to Use the Toolkit](#installing-dependencies-preparing-your-mac-to-use-the-toolkit)
   - [Installing Go](#installing-go)
