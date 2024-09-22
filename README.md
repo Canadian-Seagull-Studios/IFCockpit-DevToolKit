@@ -1,4 +1,4 @@
-# IFCockpit Development Toolkit
+# *IFCockpit* Development Toolkit
 
 ## Contents
 
@@ -24,23 +24,23 @@
 
 ## Overview
 
-This toolkit supports third-party developers in developing cockpit panels for the IFCockpit application from Canadian Seagull Studios Ltd as part of the IFCockpit Panel Developers Programme. This toolkit allows developers to test their panels before submitting them to Canadian Seagull Studios for review and inclusion in IFCockpit.
+This toolkit supports third-party developers in developing cockpit panels for the *IFCockpit* application from Canadian Seagull Studios Ltd as part of the *IFCockpit* Panel Developers Programme. This toolkit allows developers to test their panels before submitting them to Canadian Seagull Studios for review and inclusion in *IFCockpit*.
 
-This is not open source and may only be used by developers who are part of the IFCockpit developer programme under the terms of the IFCockpit Panel Distribution Agreement and may not be shared with anyone outside the terms of the programme, the Distribution Agreement or otherwise without the explicit written consent of Canadian Seagull Studios. Contact Canadian Seagull Studios at info@canadianseagulls.com for more information on the developer programme.
+This is not open source and may only be used by developers who are part of the *IFCockpit* developer programme under the terms of the *IFCockpit* Panel Distribution Agreement and may not be shared with anyone outside the terms of the programme, the Distribution Agreement or otherwise without the explicit written consent of Canadian Seagull Studios. Contact Canadian Seagull Studios at info@canadianseagulls.com for more information on the developer programme.
 
 Copyright 2024, Canadian Seagull Studios Ltd. All rights reserved.
 
 ## About the Panel Developers Programme
 
-The IFCockpit Panel Developers Programme is designed to encourage an ecosystem of high-quality aircraft cockpit panels and instruments to enhance the Infinite Flight experience.
+The *IFCockpit* Panel Developers Programme is designed to encourage an ecosystem of high-quality aircraft cockpit panels and instruments to enhance the Infinite Flight experience.
 
-Third-party developers can develop panels and submit them to Canadian Seagull Studios for review for either free or monetised distribution under the terms of the IFCockpit Panel Distribution Agreement.
+Third-party developers can develop panels and submit them to Canadian Seagull Studios for review for either free or monetised distribution under the terms of the *IFCockpit* Panel Distribution Agreement.
 
 To learn more about the programme and the ICockpit Panel Distribution Agreement, contact info@canadianseagulls.com.
 
 ## Requirements and Background Knowledge
 
-IFCockpit is a macOS desktop application built with the cross-platform [Wails](https://wails.io/) framework for building desktop apps using Web technology. IFCockpit uses [Svelte](https://svelte.dev/) as as its Web framework within Wails.
+*IFCockpit* is a macOS desktop application built with the cross-platform [Wails](https://wails.io/) framework for building desktop apps using Web technology. *IFCockpit* uses [Svelte](https://svelte.dev/) as as its Web framework within Wails.
 
 To use this toolkit to build a cockpit panel requires:
 
@@ -108,7 +108,7 @@ SUCCESS  Your system is ready for Wails development!
 
 ## Setup
 
-Once the dependencies are successfully installed, clone the IFCockpit Developers Toolkit Github repository:
+Once the dependencies are successfully installed, clone the *IFCockpit* Developers Toolkit Github repository:
 
 ```shell
 git clone git@github.com:likeablegeek/ifcockpit-devtoolkit.git
@@ -142,13 +142,13 @@ wails dev
 
 This should build the application and launch it:
 
-![IFCockpit Developer Toolkit](./docs/IFCockpitToolkit.png)
+![*IFCockpit* Developer Toolkit](./docs/*IFCockpit*Toolkit.png)
 
-By default, the toolkit includes the default general aviation cockpit panel from IFCockpit as a reference and to allow you to test your installation of the toolkit is working before beginning your own panel development.
+By default, the toolkit includes the default general aviation cockpit panel from *IFCockpit* as a reference and to allow you to test your installation of the toolkit is working before beginning your own panel development.
 
 To make sure the toolkit is working, first make sure you enable the IF Connect API by selecting General > Enable Infinite Flight Connect in the Infinite Flight settings. Next, check the IP address of your Infinite Flight device.
 
-Once done, simply enter that IP address in the IFCockpit Developer Toolkit app and click connect. It should indicate a successful connection and the panel instruments should respond to changes in your flights altitude, airspeed, vertical speed and so on.
+Once done, simply enter that IP address in the *IFCockpit* Developer Toolkit app and click connect. It should indicate a successful connection and the panel instruments should respond to changes in your flights altitude, airspeed, vertical speed and so on.
 
 ### Using Test Mode
 
@@ -166,15 +166,15 @@ States are the data points you can monitor and/or manipulate in Infinite Flight 
 
 To enable Test Mode click the `Test Mode` button in the top-right of the toolkit window. Test Mode controls will appear below the panel and allow you to interactively change the value of any of these states to see how your panel reacts:
 
-![Test Mode](./docs/IFCockpitTestMode.png)
+![Test Mode](./docs/*IFCockpit*TestMode.png)
 
 ## Panel Development
 
-In simple terms, a cockpit panel in IFCockpit is nothing more than a [Svelte component](https://svelte.dev/docs/svelte-components). This documentation assumes you are comfortable with Svelte and how to create components.
+In simple terms, a cockpit panel in *IFCockpit* is nothing more than a [Svelte component](https://svelte.dev/docs/svelte-components). This documentation assumes you are comfortable with Svelte and how to create components.
 
 In the toolkit you want to perform your panel component development in the directory `./frontend/src/panel/`. If you followed the setup step to copy `./frontend/src/sample/` to this directory then you will see the directory containing the sample general aviation panel like this:
 
-![Panel Directory](./docs/IFCockpitPanelDirectory.png)
+![Panel Directory](./docs/*IFCockpit*PanelDirectory.png)
 
 The only required file in your component is `Panel.svelte`. Beyond that you can include any additional images or other resources or create additional components which you then include in `Panel.svelte`. In the case of the sample general aviation panel, there are six "sub-components" in sub-directorys (`ifcc-airspeed`, `ifcc-altimeter`, etc) which are all imported into the main `Panel.svelte` component:
 
@@ -224,7 +224,7 @@ export function getStates() {
     
 }
 
-// Dispatch a panelloaded event to inform IFCockpit your panel is ready
+// Dispatch a panelloaded event to inform *IFCockpit* your panel is ready
 onMount(function() {
     dispatch("panelloaded",{ state: true });
 });
@@ -234,13 +234,13 @@ How you build the user interface and logic of your component is entirely at your
 
 It is important to keep in mind that your component is being rendered ultimately within a macOS webview component  -- which means the version of that webview will differ based on the version of macOS the user is running. You should keep this in mind for any testing of your panel.
 
-### Layout of the IFCockpit Window
+### Layout of the *IFCockpit* Window
 
-The layout of the IFCockpit window is fairly straight forward. The window of the developers toolkit application is exactly the same. In simple terms, a fixed bar across the top and bottom of the window are reserved for IFCockpit's internal use and the middle portion of the window is available to panels:
+The layout of the *IFCockpit* window is fairly straight forward. The window of the developers toolkit application is exactly the same. In simple terms, a fixed bar across the top and bottom of the window are reserved for *IFCockpit*'s internal use and the middle portion of the window is available to panels:
 
-![IFCockpit window zones](./docs/IFCockpitZones.png)
+![*IFCockpit* window zones](./docs/*IFCockpit*Zones.png)
 
-The top IFCockpit zone has a height of `3rem` and the bottom zone has a height of `6em`. The middle zone for panels varies in height based on the window height -- so is effectively `100vh - 9rem`.
+The top *IFCockpit* zone has a height of `3rem` and the bottom zone has a height of `6em`. The middle zone for panels varies in height based on the window height -- so is effectively `100vh - 9rem`.
 
 As the panel zone's height and width vary with window dimensions, panel layouts should account for this variability (for instance by using `%`, `vmin` or `vh` as base units for layout or by other techniques as preferred by a panel developer).
 
@@ -248,29 +248,29 @@ By default the background colour of the panel zone is black (`#000000`). Any ele
 
 ### The `states` Object
 
-The `states` object is used by IFCockpit to pass the values of Infinite Flight states into a panel. It will contain a set of key-value pairs where the key is the full Infinite Flight name of a state (such as `aircraft/0/bank`) and the value is the raw value returned by Infinite Flight in the relevant data type (integer, floating point number, string, boolean, etc.). It is the responsibility of your panel logic to transfer this value as required.
+The `states` object is used by *IFCockpit* to pass the values of Infinite Flight states into a panel. It will contain a set of key-value pairs where the key is the full Infinite Flight name of a state (such as `aircraft/0/bank`) and the value is the raw value returned by Infinite Flight in the relevant data type (integer, floating point number, string, boolean, etc.). It is the responsibility of your panel logic to transfer this value as required.
 
 ### The `previous` Object
 
-When IFCockpit receives a new value for a state it first copies the current value from the `states` object to the the `previous` object then updates that value in the `states` object. This means you can use the `previous` object to obtain the last value of a state when a state value changes. This supports use cases where a panel's behaviour is determined in part by the nature of the change in a state's value (such as a heading crossing from just below 360 degrees to just above 0 degrees).
+When *IFCockpit* receives a new value for a state it first copies the current value from the `states` object to the the `previous` object then updates that value in the `states` object. This means you can use the `previous` object to obtain the last value of a state when a state value changes. This supports use cases where a panel's behaviour is determined in part by the nature of the change in a state's value (such as a heading crossing from just below 360 degrees to just above 0 degrees).
 
 Like the `states` object, the `previous` object contains a set of key-value pairs where the key is the name of the state.
 
 ### Generating Log Messages
 
-While for development purposes you can log messages to the Javascript console with `console.log()`, your final panel should not use `console.log` for logging messages. Rather, it is recommended to use the in-built logging mechanism in IFCockpit which relies on dispatching a Svelte event from your component through the `logmsg` event as in:
+While for development purposes you can log messages to the Javascript console with `console.log()`, your final panel should not use `console.log` for logging messages. Rather, it is recommended to use the in-built logging mechanism in *IFCockpit* which relies on dispatching a Svelte event from your component through the `logmsg` event as in:
 
 ```js
 dispatch("logmsg","A log message as a string");
 ```
 
-Ultimately this will display in the Javascript console when running your panel in a development environment but will be handled differently in the production IFCockpit application without any code changes in your panel.
+Ultimately this will display in the Javascript console when running your panel in a development environment but will be handled differently in the production *IFCockpit* application without any code changes in your panel.
 
 For this reason, it is recommended to simply use this event dispatching method for generating log messages instead of `console.log()` when developing your panel.
 
 ### Setting Infinite Flight States
 
-IFCockpit provides panel developers with the ability to set state values in Infinite Flight for states which can be set via the IF Connect API.
+*IFCockpit* provides panel developers with the ability to set state values in Infinite Flight for states which can be set via the IF Connect API.
 
 To do this, your panel component needs to emit a `setstate` value passing in an object containing a state name and value as in this example:
 
@@ -281,7 +281,7 @@ dispatch("setstate", {
 });
 ```
 
-The value you send to the relevant state must be in the right type and unit value as expected by Infinite Flight. IFCockpit provides no logic for managing this and panel develoeprs should send appropriate values to Infinite Flight.
+The value you send to the relevant state must be in the right type and unit value as expected by Infinite Flight. *IFCockpit* provides no logic for managing this and panel develoeprs should send appropriate values to Infinite Flight.
 
 Please note that the general aviation panel example provided in this toolkit does not provide an example of using the `setstate` event to set an Infinite Flight state.
 
@@ -291,12 +291,12 @@ In Wails, the front end user interface of the macOS desktop application is being
 
 The simplest way to access these developer tools is to right click anywhere in the user interface of your panel and select `Inspect Element`. This will open developer tools within the toolkit window:
 
-![Browser Developer Tools](./docs/IFCockpitDevTools.png)
+![Browser Developer Tools](./docs/*IFCockpit*DevTools.png)
 
 ### Tailwind CSS
 
-The user interface of IFCockpit is built partially on top of [Tailwind CSS](https://tailwindcss.com/) which means that Tailwind's helper classes for styling, formatting and layout are available to you if needed in your component.
+The user interface of *IFCockpit* is built partially on top of [Tailwind CSS](https://tailwindcss.com/) which means that Tailwind's helper classes for styling, formatting and layout are available to you if needed in your component.
 
 You can also write your own CSS within your component as you can with any Svelte component.
 
-Additionally, IFCockpit uses the [daisyUI](https://daisyui.com/) Tailwind component component library so its components are also available to you. 
+Additionally, *IFCockpit* uses the [daisyUI](https://daisyui.com/) Tailwind component component library so its components are also available to you. 
