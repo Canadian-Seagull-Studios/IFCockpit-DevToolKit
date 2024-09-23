@@ -176,7 +176,7 @@ In the toolkit you want to perform your panel component development in the direc
 
 ![Panel Directory](./docs/IFCockpitPanelDirectory.png)
 
-The only required file in your component is `Panel.svelte`. Beyond that you can include any additional images or other resources or create additional components which you then include in `Panel.svelte`. In the case of the sample general aviation panel, there are six "sub-components" in sub-directorys (`ifcc-airspeed`, `ifcc-altimeter`, etc) which are all imported into the main `Panel.svelte` component:
+The only required file in your component is `Panel.svelte`. Beyond that you can include any additional images or other resources or create additional components which you then include in `Panel.svelte`. In the case of the sample general aviation panel, there are six "sub-components" in sub-directories (`ifcc-airspeed`, `ifcc-altimeter`, etc) which are all imported into the main `Panel.svelte` component:
 
 ```js
 // Import all instruments used by the panel

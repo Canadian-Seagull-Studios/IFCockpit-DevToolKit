@@ -53,9 +53,9 @@ func main() {
 	err = wails.Run(&options.App{
 		Title:     "IFCockpit Development Toolkit",
 		Width:     1100,
-		Height:    900,
+		Height:    800,
 		MinWidth:  1100,
-		MinHeight: 900,
+		MinHeight: 800,
 		AssetServer: &assetserver.Options{
 			Assets: assets,
 		},
